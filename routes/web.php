@@ -19,13 +19,7 @@ Auth::routes();
 
 // Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('dashboard', function () {
-    return view('admin/index');
-});
+Route::resource('dashboard','DashboardController');
 
 // Artikel
-Route::resource('artikel', 'ArtikelController');
-Route::post('artikel/search', [
-  'as' => 'artikel.search',
-  'uses' => 'ArtikelController@search'
-]);
+Route::resource('articles','ArticleController');
