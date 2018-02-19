@@ -20,54 +20,39 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
+              <th>ID</th>
+              <th>Judul Artikel</th>
+              <th>Tulis Artikel</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
+              <th>ID</th>
+              <th>Judul Artikel</th>
+              <th>Tulis Artikel</th>
               <th>Action</th>
             </tr>
           </tfoot>
           <tbody>
+            @foreach($articles as $article)
             <tr>
-              <td>Hermione Butler</td>
-              <td>Regional Director</td>
-              <td>London</td>
-              <td>47</td>
-              <td>2011/03/21</td>
+              <td>{{ $article->id }}</td>
+              <td>{{ $article->title }}</td>
+              <td>{{ $article->body }}</td>
               <td class="text-center">
-                  <a class="btn btn-info btn-xs" href="#"><i class="fa fa-search"></i> Detail</a>
-                  <a class="btn btn-success btn-xs" href="#"><i class="fa fa-pencil"></i> Ubah</a>
+                  <a class="btn btn-info btn-xs" href="{!! url('articles/show') !!}"><i class="fa fa-search"></i> Detail</a>
+                  <a class="btn btn-success btn-xs" href="{!! route('articles.edit', [$article->id]) !!}"><i class="fa fa-pencil"></i> Edit</a>
                   <a class="btn btn-danger btn-xs" href="#"><i class="fa fa-trash"></i> Hapus</a>
               </td>
             </tr>
-            <tr>
-              <td>Raka Butler</td>
-              <td>aa Director</td>
-              <td>London</td>
-              <td>47</td>
-              <td>2011/03/21</td>
-              <td class="text-center">
-                  <a class="btn btn-info btn-xs" href="#"><i class="fa fa-search"></i> Detail</a>
-                  <a class="btn btn-success btn-xs" href="#"><i class="fa fa-pencil"></i> Ubah</a>
-                  <a class="btn btn-danger btn-xs" href="#"><i class="fa fa-trash"></i> Hapus</a>
-              </td>
-            </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
     </div>
     <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
 </div>
 </div> 
 @stop
