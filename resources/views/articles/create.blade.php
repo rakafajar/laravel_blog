@@ -10,12 +10,6 @@
       <li class="breadcrumb-item active"> Tulis Artikel</li>
     </ol>
     <!-- Example DataTables Card-->
-    <div class="card mb-3">
-    <div class="card-header">
-      <i class="fa fa-table"></i> 
-      Data Artikel
-    </div>
-    <div class="card-body">
       <div class="row">
           <div class="col-md-12 raw-margin-bottom-24">
               {!! Form::open(['route' => 'articles.store', 'files' => true]) !!}
@@ -40,10 +34,7 @@
                         </div>
           </div>
               {!! Form::close() !!}
-      </div>    
-    </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>   
 </div>
 </div> 
-</div>
 @stop

@@ -41,9 +41,13 @@
               <td>{{ $article->title }}</td>
               <td>{{ $article->body }}</td>
               <td class="text-center">
-                  <a class="btn btn-info btn-xs" href="{!! url('articles/show') !!}"><i class="fa fa-search"></i> Detail</a>
-                  <a class="btn btn-success btn-xs" href="{!! route('articles.edit', [$article->id]) !!}"><i class="fa fa-pencil"></i> Edit</a>
-                  <a class="btn btn-danger btn-xs" href="#"><i class="fa fa-trash"></i> Hapus</a>
+                  <form method="post" action="{!! route('articles.destroy', [$article->id]) !!}"">
+                    <a class="btn btn-info btn-xs" href="{!! url('articles/show') !!}"><i class="fa fa-search"></i> Detail</a>
+                    <a class="btn btn-success btn-xs" href="{!! route('articles.edit', [$article->id]) !!}"><i class="fa fa-pencil"></i> Edit</a>
+                    {!! csrf_field() !!}
+                    {!! method_field('DELETE') !!}
+                    <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('Are you sure you want to delete this penyanyi?')"><i class="fa fa-trash"></i> Delete</button>
+                  </form>
               </td>
             </tr>
             @endforeach
@@ -51,7 +55,7 @@
         </table>
       </div>
     </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+    <div class="card-footer small text-muted">Updated {{ $article->created_at}}</div>
 </div>
 </div>
 </div> 
