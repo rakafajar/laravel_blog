@@ -22,4 +22,7 @@ Auth::routes();
 Route::resource('dashboard','DashboardController');
 
 // Artikel
-Route::resource('articles','ArticleController');
+Route::resource('article','ArticleController');
+
+// Kategori
+Route::resource('kategori','KategoriController');

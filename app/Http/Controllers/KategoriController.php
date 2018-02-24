@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Article;
+use App\Kategori;
 
-class ArticleController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,8 +23,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::latest()->paginate(5);
-        return view('article.index',compact('articles'))
+        $kategoris = Kategori::latest()->paginate(5);
+        return view('kategori.index',compact('kategoris'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -35,7 +35,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('article.create');
+        return view('kategori.create');
     }
 
     /**
@@ -47,12 +47,11 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'title' => 'required',
-            'body' => 'required',
+            'nama' => 'required'
         ]);
-        Article::create($request->all());
-        return redirect()->route('article.index')
-                        ->with('success','Article created successfully');
+        Kategori::create($request->all());
+        return redirect()->route('kategori.index')
+                        ->with('success','Kategori created successfully');
     }
 
     /**
@@ -63,8 +62,8 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $article = Article::find($id);
-        return view('article.show',compact('article'));
+        $kategori = Kategori::find($id);
+        return view('kategori.show',compact('kategori'));
     }
 
     /**
@@ -75,8 +74,8 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        $article = Article::find($id);
-        return view('article.edit',compact('article'));
+        $kategori = Kategori::find($id);
+        return view('kategori.edit',compact('kategori'));
     }
 
     /**
@@ -89,11 +88,10 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         request()->validate([
-            'title' => 'required',
-            'body' => 'required',
+            'nama' => 'required',
         ]);
-        Article::find($id)->update($request->all());
-        return redirect()->route('article.index')
+        Kategori::find($id)->update($request->all());
+        return redirect()->route('kategori.index')
                         ->with('success','Article updated successfully');
     }
 
@@ -105,8 +103,8 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        Article::find($id)->delete();
-        return redirect()->route('article.index')
-                        ->with('success','Article deleted successfully');
+        Kategori::find($id)->delete();
+        return redirect()->route('kategori.index')
+                        ->with('success','Kategori deleted successfully');
     }
 }

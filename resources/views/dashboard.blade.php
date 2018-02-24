@@ -40,10 +40,24 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseTutorial">
             <li>
-              <a href="{!! route('articles.index') !!}">Artikel</a>
+              <a href="{!! route('article.index') !!}">Artikel</a>
             </li>
             <li>
-              <a href="{!! route('articles.create') !!}">Tulis Artikel</a>
+              <a href="{!! route('article.create') !!}">Tulis Artikel</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Kategori">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseKategori" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-list"></i>
+            <span class="nav-link-text">Kategori</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseKategori">
+            <li>
+              <a href="{!! route('kategori.index') !!}">Kategori</a>
+            </li>
+            <li>
+              <a href="{!! route('kategori.create') !!}">Tambah Kategori</a>
             </li>
           </ul>
         </li>
